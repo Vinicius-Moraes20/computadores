@@ -43,34 +43,37 @@ void loadProgram() {
 void run() {
     while (1) {
         printf("Local da memoria %x\t Instrucao: ", pc);
+        instruction = programMemory[pc];
         switch(programMemory[pc]) {
             case 0x00:
-                instruction = programMemory[pc];
                 printf("NOP\n");
                 NOP();
                 break;
 
             case 0x01:
-                printf("LDA\n");
+
+                printf("LDA  0x%.2x\n", programMemory[pc + 1]);
                 LDA();
-                printf("ACC: 0x%.2x\n", acc);
                 break;
 
             case 0x02:
-                printf("LDI\n");
+                printf("LDI  0x%.2x\n", programMemory[pc + 1]);
                 LDI();
-                printf("ACC: 0x%.2x\n", acc);
                 break;
             
             case 0x03:
-                printf("STA\n");
+                printf("STA  0x%.2x\n", programMemory[pc + 1]);
                 STA();
                 break;
 
             case 0x04:
-                instruction = 0x04;
-                printf("ADD\n");
+                printf("ADD  0x%.2x\n", programMemory[pc + 1]);
                 ADD();
+                break;
+            
+            case 0x05:
+                printf("SUB  0x%.2x\n", programMemory[pc + 1]);
+                SUB();
                 break;
 
 

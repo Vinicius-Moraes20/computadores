@@ -49,16 +49,28 @@ void STA() {
 void ADD() {
     fetchExecution();
     PCO; MAI;               tm++;
+    PCI; RMO; MAI;          tm++;
+    RMO; BRI;               tm++;
+    ALU; ACI;               tm++;
+                            tm = 0;
+}
+
+void SUB() {
+    fetchExecution();
+    PCO; MAI;
     PCI; RMO; MAI;
     RMO; BRI;
-    printf("b: 0x%.2x        acc: 0x%.2x\n", brg, acc);
-    ALU; ACI; 
+    SUM; ALU; ACI;
 }
 
 void OUT() {
-    fetchExecution();
-    ACO; ORI;
-    printf(">> 0x%.2x\n", out);
+    fetchExecution();       
+    ACO; ORI;               tm++;
+                            tm++;
+                            tm++;
+                            tm++;
+                            tm = 0;
+    printf("\n\t\t\t  >> 0x%.2x\n", out);
 }
 
 void HLT() {
