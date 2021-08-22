@@ -57,10 +57,47 @@ void ADD() {
 
 void SUB() {
     fetchExecution();
-    PCO; MAI;
-    PCI; RMO; MAI;
-    RMO; BRI;
-    SUM; ALU; ACI;
+    PCO; MAI;               tm++;
+    PCI; RMO; MAI;          tm++;
+    RMO; BRI;               tm++;
+    SUM; ALU; ACI;          tm++;
+                            tm = 0;
+}
+
+void AND() {
+    fetchExecution();    
+    PCO; MAI;               tm++;
+    PCI; RMO; MAI;          tm++;
+    RMO; BRI;               tm++;
+    AL0; ALU; ACI;          tm++;
+                            tm = 0;
+}
+
+void OR() {
+    fetchExecution();
+    PCO; MAI;               tm++;
+    PCI; RMO; MAI;          tm++;
+    RMO; BRI;               tm++;
+    AL1; ALU; ACI;          tm++;
+                            tm = 0;
+}
+
+void XOR() {
+    fetchExecution();
+    PCO; MAI;               tm++;
+    PCI; RMO; MAI;          tm++;
+    RMO; BRI;               tm++;
+    AL1; AL0; ALU; ACI;     tm++;
+                            tm = 0;
+}
+
+void NOT() {
+    fetchExecution();
+    AL0; AL1; NOT_B; ALU; ACI;  tm++;
+                            tm++;
+                            tm++;
+                            tm++;
+                            tm = 0;
 }
 
 void OUT() {
@@ -73,8 +110,10 @@ void OUT() {
     printf("\n\t\t\t  >> 0x%.2x\n", out);
 }
 
+
+
 void HLT() {
     fetchExecution();
-    system("pause");
+    puts("Fim da execucao."); getch();
     exit(1);
 }

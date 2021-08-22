@@ -75,7 +75,26 @@ void run() {
                 printf("SUB  0x%.2x\n", programMemory[pc + 1]);
                 SUB();
                 break;
+            
+            case 0x06:
+                printf("AND  0x%.2x\n", programMemory[pc + 1]);
+                AND();
+                break;
 
+            case 0x07:
+                printf("OR  0x%.2x\n", programMemory[pc + 1]);
+                OR();
+                break;
+
+            case 0x08:
+                printf("XOR  0x%.2x\n", programMemory[pc + 1]);
+                XOR();
+                break;
+
+            case 0x09:
+                printf("NOT\n");
+                NOT();
+                break;
 
             case 0x0e:
                 printf("OUT\t");
