@@ -11,6 +11,7 @@ void run();
 
 int pc = 0, bus = 0x00;
 int programMemory[sizeProgramMemory] = {0x00};
+int instruction = 0x00;
 
 int main() {
     puts("\t\tSolon Tavares Processor 1        V0.1");
@@ -35,7 +36,6 @@ void loadProgram() {
         i++;
         
     }
-    system("pause");
     putchar ('\n');
     fclose(arq);
 }
@@ -45,6 +45,7 @@ void run() {
         printf("Local da memoria %x\t Instrucao: ", pc);
         switch(programMemory[pc]) {
             case 0x00:
+                instruction = programMemory[pc];
                 printf("NOP\n");
                 NOP();
                 break;
@@ -64,6 +65,18 @@ void run() {
             case 0x03:
                 printf("STA\n");
                 STA();
+                break;
+
+            case 0x04:
+                instruction = 0x04;
+                printf("ADD\n");
+                ADD();
+                break;
+
+
+            case 0x0e:
+                printf("OUT\t");
+                OUT();
                 break;
                 
             case 0x0f:

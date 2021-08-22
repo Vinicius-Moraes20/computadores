@@ -1,4 +1,4 @@
-extern int pc, bus, programMemory[], iri, mai, acc;
+extern int pc, bus, programMemory[], iri, mai, acc, brg, instruction, out;
 
 #define PCO bus = pc
 #define MAI mai = bus
@@ -8,3 +8,9 @@ extern int pc, bus, programMemory[], iri, mai, acc;
 #define ACI acc = bus
 #define RMI programMemory[mai] = bus
 #define ACO bus = acc
+#define BRI brg = bus
+#define ORI out = bus
+
+#define ALU switch (instruction)    \
+                case (0x04):        \
+                    bus = acc + brg
