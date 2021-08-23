@@ -110,6 +110,13 @@ void OUT() {
     printf("\n\t\t\t  >> 0x%.2x\n", out);
 }
 
+void JMP() {
+    fetchExecution();
+    PCO; MAI;
+    RMO; JMP_B;
+
+    system("pause");
+}
 
 
 void HLT() {

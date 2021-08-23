@@ -96,6 +96,11 @@ void run() {
                 NOT();
                 break;
 
+            case 0x0c:
+                printf("JMP  0x%.2x\n", programMemory[pc + 1]);
+                JMP();
+                break;
+
             case 0x0e:
                 printf("OUT\t");
                 OUT();

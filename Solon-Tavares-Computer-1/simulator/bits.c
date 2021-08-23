@@ -14,6 +14,7 @@ extern int pc, bus, programMemory[], iri, mai, acc, brg, instruction, out;
 #define AL0
 #define AL1
 #define NOT_B 
+#define JMP_B pc = bus 
 
 #define ALU switch (instruction) {                   \
                 case 0x04: bus = acc + brg;   break; \
