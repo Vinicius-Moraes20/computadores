@@ -15,11 +15,11 @@ extern int pc, bus, programMemory[], iri, mai, acc, brg, instruction, out;
 #define AL1
 #define NOT_B 
 
-#define ALU switch (instruction) {                 \
-                case 0x04: bus = acc + brg; break; \
-                case 0x05: bus = acc - brg; break; \
-                case 0x06: bus = acc & brg; break; \
-                case 0x07: bus = acc | brg; break; \
-                case 0x08: bus = acc ^ brg; break; \
-                case 0x09: bus = ~acc;      break; \
+#define ALU switch (instruction) {                   \
+                case 0x04: bus = acc + brg;   break; \
+                case 0x05: bus = acc - brg;   break; \
+                case 0x06: bus = acc & brg;   break; \
+                case 0x07: bus = acc | brg;   break; \
+                case 0x08: bus = acc ^ brg;   break; \
+                case 0x09: bus = ~acc & 0xff; break; \
             }
