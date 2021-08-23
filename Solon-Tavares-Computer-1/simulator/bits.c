@@ -1,4 +1,4 @@
-extern int pc, bus, programMemory[], iri, mai, acc, brg, instruction, out;
+extern int pc, bus, programMemory[], iri, mai, acc, brg, instruction, out, ir;
 
 #define PCO bus = pc
 #define MAI mai = bus
@@ -15,6 +15,9 @@ extern int pc, bus, programMemory[], iri, mai, acc, brg, instruction, out;
 #define AL1
 #define NOT_B 
 #define JMP_B pc = bus 
+#define ITI printf(">> ");    \
+            scanf("%x", &ir); \
+            bus = ir
 
 #define ALU switch (instruction) {                   \
                 case 0x04: bus = acc + brg;   break; \

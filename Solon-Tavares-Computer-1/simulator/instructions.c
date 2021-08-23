@@ -2,7 +2,7 @@
 extern int pc, bus;
 
 
-int mai = 0x00, tm = 0x00, iri = 0x00, acc = 0x00, brg = 0x00, out = 0x00;
+int mai = 0x00, tm = 0x00, iri = 0x00, acc = 0x00, brg = 0x00, out = 0x00, ir = 0x00;
 
 
 void fetchExecution() {
@@ -100,6 +100,15 @@ void NOT() {
                             tm = 0;
 }
 
+void IN() {
+    fetchExecution();
+    ITI; ACI;               tm++;
+                            tm++;
+                            tm++;
+                            tm++;
+                            tm = 0;
+}
+
 void OUT() {
     fetchExecution();       
     ACO; ORI;               tm++;
@@ -112,9 +121,11 @@ void OUT() {
 
 void JMP() {
     fetchExecution();
-    PCO; MAI;
-    RMO; JMP_B;
-
+    PCO; MAI;               tm++;
+    RMO; JMP_B;             tm++;
+                            tm++;
+                            tm++;
+                            tm = 0;
     system("pause");
 }
 

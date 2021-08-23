@@ -51,7 +51,6 @@ void run() {
                 break;
 
             case 0x01:
-
                 printf("LDA  0x%.2x\n", programMemory[pc + 1]);
                 LDA();
                 break;
@@ -99,6 +98,11 @@ void run() {
             case 0x0c:
                 printf("JMP  0x%.2x\n", programMemory[pc + 1]);
                 JMP();
+                break;
+
+            case 0x0d:
+                printf("IN\n");
+                IN();
                 break;
 
             case 0x0e:
