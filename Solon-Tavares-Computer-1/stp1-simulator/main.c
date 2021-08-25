@@ -116,6 +116,7 @@ void run() {
             
             default:
                 printf("NAO RECONHECIDA!\n");
+                system("pause");
                 exit(1);
                 break;
         }
