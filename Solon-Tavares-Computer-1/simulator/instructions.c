@@ -129,7 +129,6 @@ void JMP() {
     system("pause");
 }
 
-
 void HLT() {
     fetchExecution();
     puts("Fim da execucao."); getch();

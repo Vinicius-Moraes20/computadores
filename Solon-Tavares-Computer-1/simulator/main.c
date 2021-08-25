@@ -17,7 +17,6 @@ int main() {
     puts("\t\tSolon Tavares Processor 1        V0.1");
     loadProgram();
     run();
-
 }
 
 void loadProgram() {
