@@ -14,7 +14,7 @@ int programMemory[sizeProgramMemory] = {0x00};
 int instruction = 0x00;
 
 int main() {
-    puts("\t\tSolon Tavares Processor 1        V0.1");
+    puts("\t\tSolon Tavares Computer 1        V0.1");
     loadProgram();
     run();
 }
