@@ -26,21 +26,20 @@ int programMemory[sizeProgramMemory];       // Vetor que vai ser carregado o pro
 
 //------------------------------------ Protótipo de funções internas
 void loadProgram();                         // Função responsavel por carregar o programa do arquivo indicado .bin
-void cabecalho();                           // Função responsavel por escrever o cabeçalho das telas
+void header();                              // Função responsavel por escrever o cabeçalho das telas
 void fimExecucao();                         // Função para finalizar o programa, para ter compatibilidade em qualquer sistema operacional
-
-
+void run();                                 // Função responsavel por rodar o programa carregado na memoria de programa
 
 //------------------------------------ Função principal
 int main() {
-    cabecalho();
+    header();
     loadProgram();
-
+    run();
     
     fimExecucao();
 }
 
-void cabecalho() {
+void header() {
     puts("\t----------------------------------------------------");
     puts("\t          Solon Tavares Computer 1    V1.0");
     puts("\t----------------------------------------------------");
@@ -86,4 +85,8 @@ void loadProgram() {
 void fimExecucao() {
     printf("\nPressione qualquer tecla para continuar... ");
     while (1) if (kbhit()) exit(1);
+}
+
+void run() {
+    
 }

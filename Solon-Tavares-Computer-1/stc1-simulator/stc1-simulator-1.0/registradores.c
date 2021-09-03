@@ -10,6 +10,7 @@
 
 int B_REG = 0x00,       // Registrador B
     IN_REG = 0x00,      // Registrador de instrução
+    SP_REG = 0x00,      // Registrador de ponto na pilha
     ACC_REG = 0x00,     // Acumulador
     OUT_REG = 0x00,     // Registrador de saida
     INS_REG = 0x00,     // Registrador de instrução
